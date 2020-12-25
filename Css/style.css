@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pangolin', cursive;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    height: 100%;
+    background: #1f2125;
+}
+
+img {
+    width: 500px;
+    height: 500px;
+    background: #1f2125;
+}
+
+#select {
+    transition: 0.5s;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chart {
+    max-width: 1000px;
+    max-height: 700px;
+}
+
+.div-notification {
+    color: #ffffff;
+}
+
+.title {
+    color: #ffffff;
+    display: inline;
+}
+
+
+/* Board World Style */
+.board {
+    margin-top: 120px;
+}
+
+.board-world {
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: auto;
+}
+
+.board-col,
+.board-row {
+    padding: 0.5em;
+    background: #1f2125;
+    border: 2px solid #fff;
+}
+
+.board-col>h4 {
+    font-size: 45px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.board-row {
+    padding: 1.5em 2em;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#td-affected-countries {
+    color: #e67e22;
+}
+
+#td-cases {
+    color: #3498db;
+}
+
+#td-deaths {
+    color: #e74c3c;
+}
+
+#td-recovered {
+    color: #2ecc71;
+}
+
+#td-todayCases {
+    color: #6c5ce7;
+}
+
+#td-todayDeaths {
+    color: #d63031;
+}
+
+
+/* MapBox Style */
+#map {
+    width: 90%;
+    height: 100vh;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapbox-logo {
+    display: none;
+}
+
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
+
+.mapbox-improve-map {
+    display: none;
+}
+
+.mapboxgl-ctrl-compass {
+    display: none;
+}
+
+.mapboxgl-popup-content {
+    width: 320px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.mapboxgl-marker:hover {
+    cursor: pointer;
+}
+
+.mapboxgl-popup-close-button {
+    font-size: 28px;
+}
+
+b,
+span {
+    font-size: 30px;
+}
+
+
+/* Table Countries Style */
+h2 {
+    color: whitesmoke;
+}
+
+.table-contries {
+    border-collapse: collapse;
+    max-width: 1200px;
+}
+
+.row-content {
+    font-size: 20px;
+}
+
+.col-title {
+    cursor: pointer;
+    transition: 0.3s;
+    background: #2f3640;
+}
+
+.col-title:hover {
+    background: #ccc;
+    transition: 0.3s;
+}
+
+.row-content,
+.col-title {
+    border: 2px solid black;
+    padding: 10px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.flag {
+    width: 40px;
+    height: 30px;
+    float: left;
+    margin: 5px;
+}
