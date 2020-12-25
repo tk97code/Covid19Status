@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Table</title>
+    <style>
+    body {
+        background: #ccc;
+    }
+
+    table {
+        border-collapse: collapse;
+        max-width: 1200px;
+    }
+
+    td {
+        font-size: 20px;
+    }
+
+    th {
+        cursor: pointer;
+        transition: 0.3s;
+        background: #2f3640;
+    }
+
+    th:hover {
+    	background: #ccc;
+    	transition: 0.3s;
+    }
+
+    td,
+    th {
+        border: 2px solid black;
+        padding: 10px;
+        transition: 0.3s;
+    }
+
+    img {
+        width: 40px;
+        float: left;
+        margin: 5px;
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<body class="d-flex justify-content-center">
+    <table class="table table-hover table-dark table-contries">
+        <thead>
+            <tr class="text-center">
+                <th class="col-title" scope="col">#</th>
+                <th class="col-title" scope="col">Countries</th>
+                <th class="col-title" scope="col">Total Cases</th>
+                <th class="col-title" scope="col">Active</th>
+                <th class="col-title" scope="col">Recovered</th>
+                <th class="col-title" scope="col">Deaths</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        	<tr>
+        	</tr>
+        </tbody>
+    </table>
+    <script>
+    function createColumns(data, orderCountry) {
+        const country = data.country;
+        const cases = data.cases;
+        const active = data.active;
+        const recovered = data.recovered;
+        const deaths = data.deaths;
+
+        const image = data.countryInfo.flag;
+        const alt = data.countryInfo.iso2;
+
+        const columns = document.createElement('tr');
+        columns.innerHTML = `
+			<tr>
+				<td class="row-content" scope="row">${orderCountry.toLocaleString()}</td>
+			</tr>
+
+			<tr>
+				<td class="row-content" scope="row"> 
+					<img class="flag" src="${image}" alt="${alt}"> ${country}
+				</td>
+			</tr>
+
+			<tr>
+				<td class="row-content" scope="row">${cases.toLocaleString()}</td>
+			</tr>
+
+			<tr>
+				<td class="row-content" scope="row">${active.toLocaleString()}</td>
+			</tr>
+
+			<tr>
+				<td class="row-content" scope="row">${recovered.toLocaleString()}</td>
+			</tr>
+
+			<tr>
+				<td class="row-content" scope="row">${deaths.toLocaleString()}</td>
+			</tr>
+			`;
+        const tableBody = document.getElementById('tableBody');
+        tableBody.appendChild(columns);
+
+    }
+
+    function putData(data) {
+        var orderCountry = 1;
+        for (eachItem in data) {
+            const singleData = data[eachItem];
+
+            createColumns(singleData, orderCountry);
+
+            orderCountry++;
+        }
+    }
+
+    const fetchedData = fetch('https://corona.lmao.ninja/v2/countries')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            putData(data);
+        })
+
+    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+        v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+    // do the work...
+    document.querySelectorAll('.col-title').forEach(th => th.addEventListener('click', (() => {
+        const table = th.closest('table');
+        Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+            .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+            .forEach(tr => table.appendChild(tr));
+    })));
+    </script>
+</body>
+
+</html>

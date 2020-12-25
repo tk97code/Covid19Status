@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TEST</title>
+
+	<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+	<link rel="stylesheet" 
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+	/>
+
+	<style>
+		
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: #636e72;
+		}
+
+		#map {
+			width: 90%;
+			height: 100vh;
+		}
+
+		.mapboxgl-popup {
+			max-width: 200px;
+		}
+
+		.mapbox-logo{ 
+			display: none; 
+		} 
+
+		.mapboxgl-ctrl-logo { 
+			display: none !important; 
+		}
+
+		.mapbox-improve-map { 
+			display: none; 
+		} 
+
+		.mapboxgl-ctrl-compass { 
+			display: none; 
+		}
+	
+		.mapboxgl-popup-content {
+			width: 320px;
+			height: 200px;
+			overflow: hidden;
+		}
+
+		.mapboxgl-marker:hover {
+        	cursor: pointer;
+      	}
+
+		.mapboxgl-popup-close-button {
+			font-size: 28px;
+		}
+
+		b, span {
+			font-size: 30px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+	<link
+	rel="stylesheet"
+	href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+	type="text/css"
+	/>
+	<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+	<div class="container-fluid">
+	
+		<select id="select">
+			<option selected disabled>
+				select country
+			</option>	
+		</select>
+
+		<h1>Test</h1>
+		<span id="country"></span><br>
+		<span id="active"></span><br>
+		<span id="cases"></span><br>
+		<span id="deaths"></span><br>
+		<span id="recovered"></span><br>
+		<span id="todayCases"></span><br>
+		<span id="todayDeaths"></span><br>
+
+		<div class="d-flex justify-content-center">
+			<div id="map"></div>
+		</div>
+	</div>
+	<script src="Js/test.js"></script>
+</body>
+</html>

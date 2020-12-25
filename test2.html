@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #636e72;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        width: 90%;
+        height: 100vh;
+        position: absolute;
+    }
+
+    .mapboxgl-popup {
+        max-width: 200px;
+    }
+
+    .mapbox-logo {
+        display: none;
+    }
+
+    .mapboxgl-ctrl-logo {
+        display: none !important;
+    }
+
+    .mapbox-improve-map {
+        display: none;
+    }
+
+    .mapboxgl-ctrl-compass {
+        display: none;
+    }
+
+    .mapboxgl-popup-content {
+        width: 320px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .mapboxgl-marker:hover {
+        cursor: pointer;
+    }
+
+    .mapboxgl-popup-close-button {
+        font-size: 28px;
+    }
+
+    b,
+    span {
+        font-size: 30px;
+    }
+
+    #menu {
+		position: absolute;
+		margin-left: 100px;
+		margin-top: 50px;
+		background: #fff;
+		padding: 10px;
+		font-family: 'Open Sans', sans-serif;
+	}
+    </style>
+</head>
+
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
+
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+    <div class="container-fluid">
+
+        <h1>Test</h1>
+
+        <div class="d-flex justify-content-center">
+            <div id="map"></div>
+        </div>
+
+        <div class="container-fluid">
+        	<div id="menu">
+            <input id="streets-v11" type="radio" name="rtoggle" value="streets"  />
+            <label for="streets-v11">streets</label>
+            <input id="light-v10" type="radio" name="rtoggle" value="light" />
+            <label for="light-v10">light</label>
+            <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked="checked"/>
+            <label for="dark-v10">dark</label>
+            <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+            <label for="outdoors-v11">outdoors</label>
+            <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+            <label for="satellite-v9">satellite</label>
+        </div>
+        </div>
+        
+
+    </div>
+    <!-- <script src="Js/test.js"></script> -->
+    <script src="Js/test2.js"></script>
+</body>
+
+</html>
